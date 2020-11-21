@@ -16,6 +16,9 @@ public class MyReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        String msj= intent.getExtras().getString("data");
+
         Intent opcion1 = new Intent(context, MainActivity.class);
         opcion1.putExtra("datox", 9999);
         PendingIntent opcion1Pi = PendingIntent.getBroadcast(context, 0, opcion1, 0);
@@ -24,9 +27,9 @@ public class MyReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.utn_icon)
                 .setContentIntent(opcion1Pi)
                 .setContentTitle("USUARIO CREADO CON EXITO")
-                .setContentText(intent.getExtras().getString("data"))
+                .setContentText(msj)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(intent.getExtras().getString("data")))
+                        .bigText(msj))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager notificationManager =
                 context.getSystemService(NotificationManager.class);

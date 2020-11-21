@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,u.toString(),Toast.LENGTH_LONG).show();
                 new GuardarUsuario().execute(u);
                 Intent i = new Intent(MainActivity.this,MyIntentService.class);
-                i.putExtra("Notificicion",u.toString()+" creado con éxito");
+                i.putExtra("Notificacion",u.toString()+" creado con éxito");
                 startService(i);
             }
         });
