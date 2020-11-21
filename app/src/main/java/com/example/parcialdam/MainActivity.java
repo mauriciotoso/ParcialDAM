@@ -46,33 +46,27 @@ public class MainActivity extends AppCompatActivity {
         br = new MyReceiver();
         IntentFilter filter = new IntentFilter(MyReceiver.USUARIO_CREADO);
         this.registerReceiver(br, filter);
+        crearCanal(this);
 
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Usuario u = new Usuario(nombre.getText().toString(),spinner.getSelectedItem().toString());
-                Toast.makeText(MainActivity.this,u.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"El usuario se está guardando, aguarde unos segundos",Toast.LENGTH_LONG).show();
                 new GuardarUsuario().execute(u);
                 Intent i = new Intent(MainActivity.this,MyIntentService.class);
-                i.putExtra("Notificacion",u.toString()+" creado con éxito");
+                i.putExtra("Notificacion",u.toString());
                 startService(i);
             }
         });
-        crearCanal(this);
     }
 
-    class GuardarUsuario extends AsyncTask<Usuario,Void,Usuario> {
+    class GuardarUsuario extends AsyncTask<Usuario,Void,Void> {
 
         @Override
-        protected Usuario doInBackground(Usuario... usuarios) {
+        protected Void doInBackground(Usuario... usuarios) {
             listaUsiarios.add(usuarios[0]);
-            return usuarios[0];
-        }
-
-        @Override
-        protected void onPostExecute(Usuario u) {
-            super.onPostExecute(u);
-
+            return null;
         }
     }
 

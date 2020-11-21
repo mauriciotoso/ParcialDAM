@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="values">
-        <item>otro</item>
-        <item>masculino</item>
-        <item>femenino</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>Otro</item>
     </string-array>
 
 </resources>

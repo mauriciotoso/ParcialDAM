@@ -26,10 +26,10 @@ public class MyReceiver extends BroadcastReceiver {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.utn_icon)
                 .setContentIntent(opcion1Pi)
-                .setContentTitle("USUARIO CREADO CON EXITO")
+                .setContentTitle("USUARIO GUARDADO CON EXITO")
                 .setContentText(msj)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(msj))
+                        .bigText("Datos del "+msj))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager notificationManager =
                 context.getSystemService(NotificationManager.class);
